@@ -27,4 +27,13 @@ export class HeroComponent {
   changeAge(): void {
     this.age = 25;
   }
+
+  reset() {
+    this.name = 'ironman';
+    this.age = 45;
+
+    document
+      .querySelectorAll('h1')!
+      .forEach((el) => (el.innerHTML = '<h1>Hola desde Angular</h1>'));
+  }
 }
