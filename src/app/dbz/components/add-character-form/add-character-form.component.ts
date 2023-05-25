@@ -22,11 +22,16 @@ export class AddCharacterFormComponent implements OnInit {
 
   onSubmit() {
     this.emitNewCharacter.emit(this.character);
+    this.character = {
+      bio: '',
+      id: window.crypto.randomUUID(),
+      name: '',
+      picture: '',
+      power: 0,
+    };
   }
 
-  constructor() {
-    // this.character.id = window.crypto.randomUUID();
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.character.id = window.crypto.randomUUID();
