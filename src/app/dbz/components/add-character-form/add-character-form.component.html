@@ -1,6 +1,67 @@
 <h4>Add Character</h4>
-<form>
+<!-- <form>
   <input type="text" placeholder="Nomnbre" class="form-control mb-2" />
   <input type="number" placeholder="poder" class="form-control mb-2" />
   <button class="btn btn-primary" type="submit">Add</button>
+</form> -->
+
+<form (submit)="onSubmit()">
+  <div class="form-group">
+    <label for="bio">Bio:</label>
+    <textarea
+      id="bio"
+      class="form-control"
+      [(ngModel)]="character.bio"
+      name="bio"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="id">ID:</label>
+    <input
+      id="id"
+      value="{{ character.id }}"
+      name="id"
+      type="text"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      id="name"
+      class="form-control"
+      [(ngModel)]="character.name"
+      name="name"
+      type="text"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="picture">Picture:</label>
+    <input
+      id="picture"
+      class="form-control"
+      [(ngModel)]="character.picture"
+      name="picture"
+      type="text"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="power">Power:</label>
+    <input
+      id="power"
+      class="form-control"
+      [(ngModel)]="character.power"
+      name="power"
+      type="number"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-outline-primary btn-sm mt-3 btn-block">
+    Submit
+  </button>
 </form>
+<pre>{{ character | json }}</pre>

@@ -49,6 +49,9 @@ export class MainPageComponent implements OnInit {
     },
   ];
 
+  handleNewCharacter(e: Character): void {
+    this.dbzCharactersList = [...this.dbzCharactersList, e];
+  }
   constructor() {}
 
   ngOnInit() {}
