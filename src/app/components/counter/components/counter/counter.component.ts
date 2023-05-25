@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
     <p>Counter: {{ counter }}</p>
   `,
 })
-export class Counter {
+export class CounterComponent {
   public counter: number = 10;
   handleClick(n?: number): void {
     this.counter = n ? (this.counter += n) : 10;
