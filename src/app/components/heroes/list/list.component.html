@@ -1,5 +1,5 @@
 <h3>Listado de Heroes</h3>
-<ul class="mt-2 list-group">
+<ul class="mt-2 list-group" *ngIf="heroes.length; else noHayHeroes">
   <li class="list-group-item" *ngFor="let hero of heroes">
     {{ hero.name }}
     <button
@@ -10,3 +10,6 @@
     </button>
   </li>
 </ul>
+<ng-template #noHayHeroes>
+  <h5 class="text-danger">No hay Heroes disponibles.</h5>
+</ng-template>
