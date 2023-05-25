@@ -2,14 +2,12 @@
 <div class="row">
   <div class="col">
     <dbz-character-list
-      [characters]="characters.dbzCharactersList"
-      (handleDeleteCharacter)="characters.handleDeleteCharacterById($event)"
+      [characters]="characters"
+      (handleDeleteCharacter)="onDelete($event)"
     ></dbz-character-list>
   </div>
   <div class="col">
-    <dbz-add-character-form
-      (emitNewCharacter)="characters.handleNewCharacter($event)"
-    >
+    <dbz-add-character-form (emitNewCharacter)="character = $event">
     </dbz-add-character-form>
   </div>
 </div>

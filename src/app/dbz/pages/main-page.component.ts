@@ -7,7 +7,18 @@ import { DBZService } from '../services/dbz.service.ts.service';
   templateUrl: 'main-page.component.html',
 })
 export class MainPageComponent implements OnInit {
-  constructor(public characters: DBZService) {}
+  constructor(private dbzService: DBZService) {}
 
   ngOnInit() {}
+
+  get characters(): Character[] {
+    return [...this.dbzService.dbzCharactersList];
+  }
+  set character(character: Character) {
+    this.dbzService.handleNewCharacter(character);
+  }
+
+  onDelete(id: string): void {
+    this.dbzService.handleDeleteCharacterById(id);
+  }
 }
