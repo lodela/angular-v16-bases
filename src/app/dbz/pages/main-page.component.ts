@@ -52,6 +52,11 @@ export class MainPageComponent implements OnInit {
   handleNewCharacter(e: Character): void {
     this.dbzCharactersList = [...this.dbzCharactersList, e];
   }
+  handleDeleteCharacterById(e: string): void {
+    this.dbzCharactersList = this.dbzCharactersList.filter(
+      (character) => character.id !== e
+    );
+  }
   constructor() {}
 
   ngOnInit() {}
