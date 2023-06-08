@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class DBZService {
   constructor() {}
 
-  public dbzCharactersList: Character[] = [
+  private _dbzCharactersList: Character[] = [
     {
       id: '1234567890-a',
       name: 'Goku',
@@ -51,12 +51,16 @@ export class DBZService {
     },
   ];
 
-  handleNewCharacter(e: Character): void {
-    this.dbzCharactersList = [...this.dbzCharactersList, e];
+  handleNewCharacter(newCharacter: Character): void {
+    this._dbzCharactersList = [...this._dbzCharactersList, newCharacter];
   }
   handleDeleteCharacterById(e: string): void {
-    this.dbzCharactersList = this.dbzCharactersList.filter(
+    this._dbzCharactersList = this._dbzCharactersList.filter(
       (character) => character.id !== e
     );
+  }
+
+  get CharacterList(): Character[] {
+    return this._dbzCharactersList;
   }
 }
